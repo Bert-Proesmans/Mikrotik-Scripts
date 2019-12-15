@@ -26,8 +26,8 @@
 
 # PPOE account info
 
-:local ppoeUser $"PPOE_1_USR"
-:local ppoePass $"PPOE_1_PASS"
+:local ppoeUser "$"PPOE_1_USR""
+:local ppoePass "$"PPOE_1_PASS""
 
 # The interface name for creation and reference
 
@@ -38,18 +38,19 @@
 /interface pppoe-client
 
 :if ([:len [find name="$ppoeIface"]] = 0) do={
-    add name="$ppoeIface" interface=$"PPOE_1_PHY_INTERFACE" disabled=yes
+    add name="$ppoeIface" interface="$"PPOE_1_PHY_INTERFACE"" disabled=yes
 }
 
 set [find name="$ppoeIface"] \
     add-default-route=yes allow=pap,chap,mschap1,mschap2 \
-    default-route-distance=1 dial-on-demand=no disabled=no interface=ether1 \
+    default-route-distance=1 dial-on-demand=no \
     keepalive-timeout=10 max-mru=auto max-mtu=auto mrru=disabled \
     profile=default service-name="" use-peer-dns=yes \
+    disabled=no interface="$"PPOE_1_PHY_INTERFACE"" \
     user="$ppoeUser" password="$ppoePass"
 
 # WARN; We assume interface list "WAN" already exists through defconf!
 /interface list member
 
 # No error handling because it's possible that the combo already exists
-:do { add interface="$ppoeIface" list=$"WAN_IF_LIST" disabled=no } on-error={}
+:do { add interface="$ppoeIface" list="$"WAN_IF_LIST"" disabled=no } on-error={}
