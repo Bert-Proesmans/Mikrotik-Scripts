@@ -18,11 +18,13 @@
 # PPOE configuration for WAN uplink
 :global "PPOE_1_USR"
 :global "PPOE_1_PASS"
+# NOTE; ether1 is assumed to be the internet uplink switch port, but this
+# has been made configurable.
 :global "PPOE_1_PHY_INTERFACE"
 
 :set "PPOE_1_USR" ""
 :set "PPOE_1_PASS" ""
-:set "PPOE_1_PHY_INTERFACE" "ether"
+:set "PPOE_1_PHY_INTERFACE" "ether1"
 
 #---------------
 
