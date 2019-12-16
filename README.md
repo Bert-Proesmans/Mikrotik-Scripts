@@ -6,7 +6,8 @@ The end result is a configuration for home use. It contains PPP, VLAN, DHCP, DNS
 
 ## Tested on Routerboard/hEX products
 
-The version i'm personally running is RouterOS 6.46. These are scripts derived from my personal configuration, generalized to use global variables and updated to be idempotent in most situations.
+The version i'm personally running is RouterOS 6.46. Switching hardware is MT7621 (ether1-ether5).  
+The scripts are derived from my personal configuration, generalized to use global variables and updated to be idempotent in most situations.
 
 WARN; These scripts require tweaking for older RouterOS versions and different hardware! Consult the
 [Mikrotik WIKI](https://www.mikrotik.com/documentation) and/or user forum for specific help.
