@@ -38,7 +38,9 @@
 /interface pppoe-client
 
 :if ([:len [find name="$ppoeIface"]] = 0) do={
-    add name="$ppoeIface" interface="$"PPOE_1_PHY_INTERFACE"" disabled=yes
+    add name="$ppoeIface" disabled=yes \
+    interface="$"PPOE_1_PHY_INTERFACE"" \
+    comment="customconf"
 }
 
 set [find name="$ppoeIface"] \
@@ -53,4 +55,7 @@ set [find name="$ppoeIface"] \
 /interface list member
 
 # No error handling because it's possible that the combo already exists
-:do { add interface="$ppoeIface" list="$"WAN_IF_LIST"" disabled=no } on-error={}
+:do { 
+    add interface="$ppoeIface" list="$"WAN_IF_LIST"" disabled=no \
+    comment="customconf"    
+} on-error={}

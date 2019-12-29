@@ -27,7 +27,8 @@
 /user
 
 :if ([:len [find name="$"USER_1_NAME""]] = 0) do={
-    add name="$"USER_1_NAME"" disabled=yes
+    add name="$"USER_1_NAME"" group=full disabled=yes \
+    comment="customconf"
 }
 
 set [find name="$"USER_1_NAME""] \

@@ -5,6 +5,12 @@
 # Script containing global variable values for other scripts (aka shards).
 #------------------------------------------------------------------------------------
 
+:global "LAST_UPDATE"
+
+:set "LAST_UPDATE" [/system clock get date]
+
+#--------------- 
+
 :global "ADMIN_PASS"
 :global "USER_1_NAME"
 :global "USER_1_PASS"
@@ -25,6 +31,17 @@
 :set "PPOE_1_USR" ""
 :set "PPOE_1_PASS" ""
 :set "PPOE_1_PHY_INTERFACE" "ether1"
+
+#---------------
+
+:global "VLAN_ID_MANAGEMENT"
+:global "VLAN_ID_GUESTS"
+
+# NOTE; A higher ID requires more hoops to jump before getting access.
+# NOTE; Guest VLAN ID "1" is chosen because the default is always "1", "0" is not an option.
+# NOTE; VLAN ID numbers are chosen for clarity and to prevent fat fingering the wrong ID.
+:set "VLAN_ID_MANAGEMENT" "99"
+:set "VLAN_ID_GUESTS" "1"
 
 #---------------
 
