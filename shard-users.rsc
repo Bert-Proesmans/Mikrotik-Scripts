@@ -24,17 +24,17 @@
 
 #------------------------------------------------------------------------------------
 
-/user
+/user {
+    :if ([:len [find name="$"USER_1_NAME""]] = 0) do={
+        add name="$"USER_1_NAME"" group=full disabled=yes \
+        comment="customconf"
+    }
 
-:if ([:len [find name="$"USER_1_NAME""]] = 0) do={
-    add name="$"USER_1_NAME"" group=full disabled=yes \
-    comment="customconf"
+    set [find name="$"USER_1_NAME""] \
+        group=full disabled=no \
+        password="$"USER_1_PASS""
+
+    # WARN; We assume the admin user exists because of defconf!
+    set [find name="admin"] \
+        disabled=yes password="$"ADMIN_PASS""
 }
-
-set [find name="$"USER_1_NAME""] \
-    group=full disabled=no \
-    password="$"USER_1_PASS""
-
-# WARN; We assume the admin user exists because of defconf!
-set [find name="admin"] \
-    disabled=yes password="$"ADMIN_PASS""

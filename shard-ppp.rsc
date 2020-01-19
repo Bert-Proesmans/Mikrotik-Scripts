@@ -11,18 +11,18 @@
 :global "PPOE_1_USR"
 :global "PPOE_1_PASS"
 :global "PPOE_1_PHY_INTERFACE"
-:global "WAN_IF_LIST"
 
 :if (\
     [:typeof $"PPOE_1_USR"] = "nothing" or \
     [:typeof $"PPOE_1_PASS"] = "nothing" or \
-    [:typeof $"WAN_IF_LIST"] = "nothing" or \
     [:typeof $"PPOE_1_PHY_INTERFACE"] = "nothing" \
     ) do={
       :error "Not all known globals are set, script will exit"
 }
 
 #--------------- LOCALS ------------------
+
+:local "WAN_IF_LIST" "WAN"
 
 # PPOE account info
 

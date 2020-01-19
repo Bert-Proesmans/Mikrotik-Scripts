@@ -14,11 +14,7 @@ WARN; These scripts require tweaking for older RouterOS versions and different h
 
 ## Requirements
 
-These scripts assume the default configuration has been preinstalled.
-
-NOTE; There are two versions of default configuration;
- * The bare configuration; installed after erasing the configuration memory (hold down reset for ~20 secs)
- * The default configuration (defconf); installed after resetting the configuration through the UI.
+These scripts _do not_ assume the default configuration is preinstalled.
 
 ## Usage
 
